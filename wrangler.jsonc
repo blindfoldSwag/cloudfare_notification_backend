@@ -1,0 +1,29 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "sl-system-notifications",
+  "main": "src/index.js",
+  "compatibility_date": "2026-04-08",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "ALLOWED_ORIGIN": "https://YOUR_USERNAME.github.io",
+    "VAPID_PUBLIC_KEY": "PASTE_PUBLIC_VAPID_KEY",
+    "VAPID_SUBJECT": "mailto:you@example.com"
+  },
+  "triggers": {
+    "crons": [
+      "7,22,37,52 * * * *"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "sl-system-notifications",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "preview_database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
